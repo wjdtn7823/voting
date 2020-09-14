@@ -10,12 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
+/*
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@NoArgsConstructor*/
+/*
 public class MemberGroup {
 
     @Id
@@ -23,4 +23,4 @@ public class MemberGroup {
     private long id;
 
 
-}
+}*/

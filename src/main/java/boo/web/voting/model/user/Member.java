@@ -1,26 +1,25 @@
 package boo.web.voting.model.user;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import boo.web.voting.model.group.Team;
+import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
+
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id ;
 
     private String name;
 
@@ -28,4 +27,6 @@ public class Member {
 
     private String password;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Team team;
 }

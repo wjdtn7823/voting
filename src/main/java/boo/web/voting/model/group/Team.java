@@ -13,15 +13,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Group {
+public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
-    MemberGroup memberGroup;
-
-
+    private String name;
 
 }
+
