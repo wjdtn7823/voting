@@ -1,12 +1,9 @@
 package boo.web.voting;
 
-import boo.web.voting.model.user.Member;
-import boo.web.voting.repo.MemberRepository;
+import boo.web.voting.domain.members.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
