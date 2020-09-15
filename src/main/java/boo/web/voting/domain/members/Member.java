@@ -1,7 +1,6 @@
-package boo.web.voting.model.user;
+package boo.web.voting.domain.members;
 
 
-import boo.web.voting.model.group.Team;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,10 +14,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Data
-
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
 
     private String name;
@@ -27,6 +26,11 @@ public class Member {
 
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Team team;
+    @Builder
+    public Member(String name, String email, String password){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+
+    }
 }

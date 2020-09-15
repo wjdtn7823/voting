@@ -1,6 +1,6 @@
-package boo.web.voting.repo;
+package boo.web.voting.domain.members;
 
-import boo.web.voting.model.user.Member;
+import boo.web.voting.domain.members.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

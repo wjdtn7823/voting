@@ -1,21 +1,14 @@
-package boo.web.voting.controller;
+package boo.web.voting.domain.members;
 
 
-import boo.web.voting.model.group.Team;
-import boo.web.voting.model.user.JoinRequest;
-import boo.web.voting.model.user.Member;
-import boo.web.voting.repo.MemberRepository;
-import boo.web.voting.service.user.MemberService;
+import boo.web.voting.domain.members.Member;
+import boo.web.voting.domain.members.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import javax.persistence.EntityManager;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 public class MemberController {
