@@ -1,6 +1,8 @@
 package boo.web.voting.domain.members;
 
 
+import boo.web.voting.web.dto.UserCreateRequestDto;
+import boo.web.voting.web.dto.UserUpdateRequestDto;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
@@ -32,5 +34,9 @@ public class Member {
         this.email = email;
         this.password = password;
 
+    }
+
+    public void update(UserUpdateRequestDto dto){
+        this.password = dto.getPassword();
     }
 }

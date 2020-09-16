@@ -5,6 +5,7 @@ import boo.web.voting.web.dto.PostSaveRequestDto;
 public interface PostService {
 
 
-     void addPost(PostSaveRequestDto postSaveRequestDto);
+     Long addPost(PostSaveRequestDto postSaveRequestDto);
 
+     Posts findPostById(Long id);
 }

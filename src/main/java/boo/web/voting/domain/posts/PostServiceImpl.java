@@ -17,14 +17,20 @@ public class PostServiceImpl implements PostService{
     MemberRepository memberRepository;
 
     @Override
-    public void addPost(PostSaveRequestDto postSaveRequestDto) {
+    public Long addPost(PostSaveRequestDto postSaveRequestDto) {
         String user_name = postSaveRequestDto.getAuthor();
 
         Member member = memberRepository.findByEmail(user_name).orElseThrow(NoSuchElementException::new);
 
         Posts post = postSaveRequestDto.toPostEntity();
 
-        postRepository.save(post);
+        return postRepository.save(post).getId();
 
+
+    }
+
+    @Override
+    public Posts findPostById(Long id) {
+        return null;
     }
 }

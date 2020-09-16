@@ -35,14 +35,14 @@ public class PostController {
     }
 
     @PutMapping("/posts/{id}")
-    public ResponseEntity update(@PathVariable long id, @RequestBody PostUpdateRequestDto postUpdateRequestDto){
-        postService.update(id,postUpdateRequestDto);
+    public ResponseEntity updatePost(@PathVariable long id, @RequestBody PostUpdateRequestDto postUpdateRequestDto){
+   //     postService.updatePost(id,postUpdateRequestDto);
 
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/posts/{id}")
-    public ResponseEntity<Object> findPosById(@PathVariable Long id){
+    public ResponseEntity<Object> findPostById(@PathVariable Long id){
         Map <String, Object> map = new HashMap<>();
 
         Posts posts = postService.findPostById(id);
@@ -54,6 +54,7 @@ public class PostController {
     @DeleteMapping("/posts/{id}")
     public ResponseEntity<Object> deletePostById(@PathVariable Long id){
 
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 

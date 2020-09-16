@@ -3,6 +3,11 @@ package boo.web.voting.domain.members;
 
 import boo.web.voting.domain.members.Member;
 import boo.web.voting.domain.members.MemberService;
+import boo.web.voting.web.dto.UserCreateRequestDto;
+import boo.web.voting.web.dto.UserDeleteRequestDto;
+import boo.web.voting.web.dto.UserLoginRequestDto;
+import boo.web.voting.web.dto.UserUpdateRequestDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class MemberController {
 
-    @Autowired
-    MemberService memberService;
 
-
+    private final MemberService memberService;
 
     @GetMapping("/member/check")
-    ResponseEntity duplicateEmailCheck(String email){
+    ResponseEntity duplicateEmailCheck(@RequestParam("email") String email){
 
         Map<String, Object> map = new HashMap<>();
         memberService.duplicateCheck(email);
@@ -28,35 +32,33 @@ public class MemberController {
         return new ResponseEntity(map,HttpStatus.OK);
     }
 
-    @PostMapping("/member/join")
-    ResponseEntity  join(){
+    @PostMapping("/member")
+    Long  join(@RequestBody UserCreateRequestDto requestDto){
 
-        //memberService.join(joinRequest);
+        return memberService.createUser(requestDto);
 
-        HttpHeaders header = new HttpHeaders();
-        Member member = new Member();
-        member.setName("부정수");
+    }
 
-        header.setContentType(MediaType.TEXT_PLAIN);
-
-        HttpEntity<String> entity = new HttpEntity<>("{\n" +
-                "\t\"text\" :  \"Hello, this is some text\\nThis is more text. :tada:\"\n" +
-                "}",header);
-
-
-        return  new ResponseEntity(HttpStatus.OK);
+    @PostMapping("/member/login")
+    void login(@RequestBody UserLoginRequestDto requestDto){
+        memberService.login(requestDto);
     }
 
 
-    @DeleteMapping("/member/delete")
-
-    ResponseEntity deleteMember(String email, String password){
+    @DeleteMapping("/member/")
+    ResponseEntity deleteMember(UserDeleteRequestDto requestDto){
         Map<String, Object> map = new HashMap<>();
-        memberService.deleteMember(email,password);
+        memberService.deleteMember(requestDto);
         map.put("msg","회원 탈퇴에 성공했습니다");
         return new ResponseEntity(map,HttpStatus.OK);
 
     }
-
+    @PutMapping("/member/")
+    ResponseEntity updateMember(@RequestParam("email") String email, UserUpdateRequestDto dto){
+        Map<String, Object> map = new HashMap<>();
+        memberService.updateMember(email,dto);
+        map.put("msg","회원 수정에 성공했습니다");
+        return new ResponseEntity(map,HttpStatus.OK);
+    }
 
 }

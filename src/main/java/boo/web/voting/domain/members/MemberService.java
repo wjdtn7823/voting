@@ -1,14 +1,24 @@
 package boo.web.voting.domain.members;
 
+import boo.web.voting.web.dto.UserCreateRequestDto;
+import boo.web.voting.web.dto.UserDeleteRequestDto;
+import boo.web.voting.web.dto.UserLoginRequestDto;
+import boo.web.voting.web.dto.UserUpdateRequestDto;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface MemberService {
 
-    void findByEmail(String email);
+    Member findByEmail(String email);
 
 
-    void duplicateCheck(String email);
+    Member duplicateCheck(String email);
 
-    void deleteMember(String email, String password);
+    void deleteMember(UserDeleteRequestDto requestDto);
+
+    void updateMember(String email, UserUpdateRequestDto dto);
+
+    Long createUser(UserCreateRequestDto requestDto);
+
+    void login(UserLoginRequestDto requestDto);
 }
