@@ -46,7 +46,7 @@ public class MemberController {
 
 
     @DeleteMapping("/member/")
-    ResponseEntity deleteMember(UserDeleteRequestDto requestDto){
+    ResponseEntity deleteMember(@RequestBody  UserDeleteRequestDto requestDto){
         Map<String, Object> map = new HashMap<>();
         memberService.deleteMember(requestDto);
         map.put("msg","회원 탈퇴에 성공했습니다");
