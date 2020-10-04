@@ -32,8 +32,9 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     compile("org.springframework.boot:spring-boot-devtools")
-
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     testImplementation 'org.springframework.security:spring-security-test'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '2.2.5.RELEASE'
 
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.3.3.RELEASE'
