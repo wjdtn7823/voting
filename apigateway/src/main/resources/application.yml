@@ -2,14 +2,15 @@ spring:
   application:
     name: api-gateway
 server:
-  port: 8082
-
+  port: 8083
 
 zuul:
   routes:
     voting-server: /member/**
 #      url: http://localhost:8080
-
+    auth-center : /auth/**
+ #     url : http://localhost:8086
+  sensitive-headers:
 eureka:
   client:
     service-url:
