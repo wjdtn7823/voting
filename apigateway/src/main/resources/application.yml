@@ -1,9 +1,16 @@
 spring:
+  jwt:
+    secret : jungsoo
   application:
     name: api-gateway
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+
 server:
   port: 8082
-
 
 zuul:
   routes:
