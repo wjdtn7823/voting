@@ -39,12 +39,6 @@ public class MemberController {
 
     }
 
-    @PostMapping("/member/login")
-    void login(@RequestBody UserLoginRequestDto requestDto){
-        memberService.login(requestDto);
-    }
-
-
     @DeleteMapping("/member/")
     ResponseEntity deleteMember(@RequestBody  UserDeleteRequestDto requestDto){
         Map<String, Object> map = new HashMap<>();

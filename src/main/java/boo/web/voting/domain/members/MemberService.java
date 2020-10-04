@@ -20,5 +20,4 @@ public interface MemberService {
 
     Long createUser(UserCreateRequestDto requestDto);
 
-    void login(UserLoginRequestDto requestDto);
 }

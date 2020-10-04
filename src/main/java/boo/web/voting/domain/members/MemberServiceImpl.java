@@ -51,9 +51,4 @@ public class MemberServiceImpl implements MemberService {
          return memberRepository.save(member).getId();
     }
 
-    @Override
-    public void login(UserLoginRequestDto requestDto) {
-
-        memberRepository.findByEmailAndPassword(requestDto.getEmail(), requestDto.getPassword()).orElseThrow(()->new IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다."));
-    }
 }
