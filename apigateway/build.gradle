@@ -28,7 +28,6 @@ dependencies {
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.4.RELEASE'
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.3.4.RELEASE'
 
 }
 

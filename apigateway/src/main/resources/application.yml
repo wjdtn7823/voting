@@ -1,22 +1,11 @@
 spring:
-  jwt:
-    secret : jungsoo
   application:
     name: api-gateway
-  cache:
-    type: redis
-  redis:
-    host: localhost
-    port: 6379
-
 server:
-  port: 8082
+  port: 8083
 
 zuul:
-  routes:
-    voting-server: /member/**
-#      url: http://localhost:8080
-
+  sensitive-headers:
 eureka:
   client:
     service-url:
@@ -28,3 +17,13 @@ hystrix:
         isolation:
           thread:
             timeoutInMiliseconds:2000
+  auditevents:
+    enabled:
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+  endpoint:
+    env:
+      enabled: true
