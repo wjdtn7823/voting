@@ -41,7 +41,7 @@ public class TokenProvider {
                 .setClaims(claims)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+1000*expired_time))
-                .signWith(SignatureAlgorithm.HS256,SECRET_KEY)
+                .signWith(SignatureAlgorithm.HS256,SECRET_KEY+ access_token_name)
                 .compact();
     }
 
