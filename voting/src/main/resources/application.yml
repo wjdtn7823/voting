@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssafyweb?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        format_sql : true
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  application:
+    name: voting-server
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+server:
+  port: 8080

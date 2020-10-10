@@ -11,6 +11,11 @@ spring:
           auto: update
         show_sql: true
         format_sql : true
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
 
 
 logging:
